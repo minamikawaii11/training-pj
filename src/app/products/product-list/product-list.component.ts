@@ -10,6 +10,10 @@ import { IProduct } from '../product';
 export class ProductListComponent {
 
  
+  imageWidth= 50;
+  imageMargin = 2;
+  isShowImage =true;
+
   products: IProduct[] = [
 
     {
@@ -78,4 +82,7 @@ export class ProductListComponent {
     //{'font-size':(p.productName.length>5)? '10px':'auto'}
   }
 
+  toggleImage(){
+    this.isShowImage = !this.isShowImage
+  }
 }
