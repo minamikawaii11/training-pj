@@ -13,6 +13,8 @@ export class ProductListComponent {
   imageWidth= 50;
   imageMargin = 2;
   isShowImage =true;
+  searchText='';
+  
 
   products: IProduct[] = [
 
