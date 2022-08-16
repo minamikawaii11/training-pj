@@ -13,7 +13,7 @@
     <tbody>
         <tr *ngFor="let p of products">
             <td [ngStyle]="getFontSize(p)">{{p.productName}}</td>
-            <td>{{p.productCode | lowercase }}</td>
+            <td>{{p.productCode | lowercase | convertToSpace:'-'}}</td>
             <td [ngClass]="getPriceLevel(p)">{{p.price | number:'2.1-1'}}</td>
             <td>{{p.starRating}}</td>
             <td><img [src]="p.imageUrl" *ngIf="isShowImage"

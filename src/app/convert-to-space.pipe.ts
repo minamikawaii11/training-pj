@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ConvertToSpacePipe implements PipeTransform {
 
-  transform(value: string, ): string {
-    return '';
+  transform(value: string, character?:string ): string {
+    return value.replace(character || '-',' ');
   }
 
 }
