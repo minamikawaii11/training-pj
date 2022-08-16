@@ -26,7 +26,7 @@ export class ProductListComponent {
 
   performFilter(value: string){
     if(value == '' || !value ) return this.products; 
-    return this.filteredProduct = this.products.filter(p => p.productName.toLowerCase().includes(value))
+    return this.filteredProduct = this.products.filter(p => p.productName.toLowerCase().includes(value.toLowerCase()))
   }
 
   products: IProduct[] = [
