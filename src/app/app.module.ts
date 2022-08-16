@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ConvertToSpacePipe } from './convert-to-space.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ConvertToSpacePipe
   ],
   imports: [
     BrowserModule,
