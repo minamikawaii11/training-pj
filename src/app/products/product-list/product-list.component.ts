@@ -13,8 +13,21 @@ export class ProductListComponent {
   imageWidth= 50;
   imageMargin = 2;
   isShowImage =true;
-  searchText='';
-  
+
+
+  private _searchText='';
+  get searchText():string{
+    return this._searchText;
+  }
+  set searchText(value: string){
+      this._searchText = value;
+      this.filteredProduct = this.performFilter(value);
+  }
+
+  performFilter(value: string){
+    if(value == '' || !value ) return this.products; 
+    return this.filteredProduct = this.products.filter(p => p.productName.toLowerCase().includes(value))
+  }
 
   products: IProduct[] = [
 
@@ -69,6 +82,8 @@ export class ProductListComponent {
       "imageUrl": "assets/images/xbox-controller.png"
     }
   ];
+
+  filteredProduct: IProduct[] = this.products;
 
   getPriceLevel(p: IProduct){
     let cssClass ={'high-price':false,'low-price':false}
