@@ -14,20 +14,26 @@
             <th>
                 <button class="btn btn-primary" (click)="toggleImage()">Show image</button>
             </th>
+            <th>Action</th>
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let p of filteredProduct">
-            <td [ngStyle]="getFontSize(p)">{{p.productName}}</td>
+        <tr *ngFor="let p of filteredProduct let i = index">
+            <td [ngStyle]="getFontSize(p)">
+                <a [routerLink]="['/products',p.productId]">{{p.productName}}</a>
+            </td>
             <td>{{p.productCode | lowercase | convertToSpace:'-'}}</td>
             <td [ngClass]="getPriceLevel(p)">{{p.price | number:'2.1-1'}}</td>
-            <td>{{p.starRating}}</td>
-            <td><img [src]="p.imageUrl" *ngIf="isShowImage"
-                [alt]="p.description"
-                [style.width.px] = "imageWidth"
-                [style.Margin.px] = "imageMargin"
-                ></td>
+            <td>{{p.starRating | number:'1.2-2'}}<star-rating [rating]="p.starRating" (onRating)="onRating($event,i)">
+                </star-rating>
+            </td>
+            <td><img [src]="p.imageUrl" *ngIf="isShowImage" [alt]="p.description" [style.width.px]="imageWidth"
+                    [style.Margin.px]="imageMargin"></td>
+            <td>
+                <button class="btn btn-info" (click)="vote(i)">Vote</button>
+            </td>
         </tr>
     </tbody>
 </table>
-<div class="alert alert-warning" *ngIf="products.length == 0" >ไม่มีข้อมูล</div>
+<div class="alert alert-warning" *ngIf="products.length == 0">ไม่มีข้อมูล</div>

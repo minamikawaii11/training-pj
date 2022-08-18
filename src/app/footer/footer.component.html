@@ -1,1 +1,12 @@
-<p>footer works!</p>
+<footer class="footer">
+    <div class="container">
+      <span class="text-muted" *ngIf="menuSelectedItem; else notSelected">
+        You selected menu item {{ menuSelectedItem }}
+      </span>
+      <ng-template #notSelected>
+        <span>
+          Select menu for show footer note.
+        </span>
+      </ng-template>
+    </div>
+  </footer>
